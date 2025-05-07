@@ -78,6 +78,10 @@ return [
     'contactarotra'         => 'Another query',
     'contactarerrornombre'  => 'You must enter a name',
     'contactarerroremail'   => 'The email is not valid',
-    'contactarerrormensaje' => 'You must enter a message'
+    'contactarerrormensaje' => 'You must enter a message',
+    //Idiomas
+    'espanol'               => 'Spanish',
+    'ingles'                => 'English',
+    'catalan'               => 'Catalan'
 	];
 

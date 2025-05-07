@@ -9,7 +9,7 @@ class EncuentrosModel extends Model
     
     protected $table         = 'encuentros';
     protected $primaryKey    = 'IdEncuentro';
-    protected $returnType    = 'array';
+    protected $returnType    = 'object';
     protected $allowedFields = ['IdMunicipio', 'Descripcion', 'Dia', 'Mes', 'Anyo'];
     
     public function getEncuentrosParams($mes, $ano){
@@ -81,6 +81,18 @@ class EncuentrosModel extends Model
         $builder->orderBy('Anyo', 'DESC');
 
         $query = $builder->get()->getResult();
+
+        return $query;
+    }
+
+    public function getEncuentro($idEncuentro){
+        $db = \Config\Database::connect();
+        $builder = $db->table('encuentros');
+        $builder->select('*');
+        $builder->join('municipios', 'municipios.IdMunicipio = encuentros.IdMunicipio', 'left');
+        $builder->where('encuentros.IdEncuentro', $idEncuentro);
+
+        $query = $builder->get()->getRow();
 
         return $query;
     }

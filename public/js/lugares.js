@@ -9,7 +9,7 @@ $(document).ready(function(){
 	if (admin == -1){
 		var pathRecargaMunicipios = path + '/public/index.php/buscador/recarga';
 	} else {
-		var pathRecargaMunicipios = path + '/admin/visitasAdmin/recarga';
+		var pathRecargaMunicipios = path + '/public/index.php/admin/municipios/recarga';
 		//var pathAdminListadoRutas = path + '/admin/includes/inc_listado_rutas.php';
 		//var pathAdminResultados =  path + '/admin/resultados.php';
 	}

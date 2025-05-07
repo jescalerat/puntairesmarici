@@ -34,13 +34,13 @@ class Encuentro extends BaseController
 
         $encuentrosModel = model('EncuentrosModel');
         $encuentro = $encuentrosModel->find($idEncuentro);
-        $titulo = $encuentro['Descripcion'];
-        $dia = $encuentro['Dia'];
-        $mes = $encuentro['Mes'];
-        $any = $encuentro['Anyo'];
+        $titulo = $encuentro->Descripcion;
+        $dia = $encuentro->Dia;
+        $mes = $encuentro->Mes;
+        $any = $encuentro->Anyo;
 
         $municipiosModel = model('MunicipiosModel');
-        $municipio = $municipiosModel->find($encuentro['IdMunicipio']);
+        $municipio = $municipiosModel->find($encuentro->IdMunicipio);
 
         $provinciasModel = model('ProvinciasModel');
         $provincia = $provinciasModel->find($municipio->IdProvincia);

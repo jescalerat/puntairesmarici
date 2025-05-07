@@ -9,7 +9,7 @@ class CorreoModel extends Model
     
     protected $table         = 'correo';
     protected $primaryKey    = 'IdCorreo';
-    protected $returnType    = 'array';
+    protected $returnType    = 'object';
     protected $allowedFields = ['Nombre', 'Email', 'Mensaje', 'IP'];
     
 }

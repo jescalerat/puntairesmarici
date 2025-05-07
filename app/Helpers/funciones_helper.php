@@ -719,4 +719,82 @@ function devolverFechaBBDD($fecha)
     $fechaTraducida=$dia."-".$mes."-".$any;
     return $fechaTraducida;
 }
+
+function visitasDia($fechaactual){
+	$visitasModel = model('VisitasModel');
+	$totalVisitasDia = $visitasModel->getVisitasDia($fechaactual);
+	return $totalVisitasDia;
+}
+
+function visitasDiaDistintas($fechaactual){
+	$visitasModel = model('VisitasModel');
+	$totalVisitasDia = $visitasModel->getVisitasDiaDistintas($fechaactual);
+	return $totalVisitasDia;
+}
+
+function tituloPagina($idPagina){
+	$pagina_vista="";
+	if ($idPagina==1)
+	{
+		$pagina_vista="Inicio";
+	}
+	else if ($idPagina==2)
+	{
+		$pagina_vista="Calendario";
+	}
+	else if ($idPagina==3)
+	{
+		$pagina_vista="Buscador";
+	}
+	else if ($idPagina==4)
+	{
+		$pagina_vista="Encuentro";
+	}
+	else if ($idPagina==5)
+	{
+		$pagina_vista="Paginas amigas";
+	}
+	else if ($idPagina==6)
+	{
+		$pagina_vista="Contactar";
+	}
+	else if ($idPagina==62)
+	{
+		$pagina_vista="Contactar enviado";
+	}
+	return $pagina_vista;
+}
+
+function estilo($idPagina){
+	$estilo = "";
+	if ($idPagina==6)
+	{
+		$estilo = "bgcolor=\"red\"";
+	}
+	else if ($idPagina==62)
+	{
+		$estilo = "bgcolor=\"red\"";
+	}
+	return $estilo;
+}
+
+function observaciones($idPagina, $idObservacion){
+	$observaciones = "";
+	if ($idPagina==4)
+	{
+		$encuentrosModel = model('EncuentrosModel');
+		$encuentro = $encuentrosModel->getEncuentro($idObservacion);
+		if ($encuentro != null){
+			$observaciones = $encuentro->Municipio;
+		} else {
+			$observaciones = $idObservacion;
+		}
+		
+	} else {
+		$observaciones = $idObservacion;
+	}
+	
+
+	return $observaciones;
+}
 ?>

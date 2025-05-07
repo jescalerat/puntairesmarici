@@ -78,5 +78,9 @@ return [
     'contactarotra'         => 'Una altra consulta',
     'contactarerrornombre'  => 'Heu d\'escriure un nom',
     'contactarerroremail'   => 'El correu electrònic no és vàlid',
-    'contactarerrormensaje' => 'Heu d\'escriure un missatge'
+    'contactarerrormensaje' => 'Heu d\'escriure un missatge',
+    //Idiomas
+    'espanol'               => 'Espanyol',
+    'ingles'                => 'Anglès',
+    'catalan'               => 'Català'
 	];
