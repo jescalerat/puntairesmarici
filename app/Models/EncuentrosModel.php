@@ -10,7 +10,7 @@ class EncuentrosModel extends Model
     protected $table         = 'encuentros';
     protected $primaryKey    = 'IdEncuentro';
     protected $returnType    = 'object';
-    protected $allowedFields = ['IdMunicipio', 'Descripcion', 'Dia', 'Mes', 'Anyo'];
+    protected $allowedFields = ['IdEncuentro', 'IdMunicipio', 'Descripcion', 'Dia', 'Mes', 'Anyo'];
     
     public function getEncuentrosParams($mes, $ano){
         $db = \Config\Database::connect();
@@ -91,6 +91,18 @@ class EncuentrosModel extends Model
         $builder->select('*');
         $builder->join('municipios', 'municipios.IdMunicipio = encuentros.IdMunicipio', 'left');
         $builder->where('encuentros.IdEncuentro', $idEncuentro);
+
+        $query = $builder->get()->getRow();
+
+        return $query;
+    }
+
+    public function getMaxEncuentro(){
+        $db = \Config\Database::connect();
+        $builder = $db->table('encuentros');
+        $builder->select('*');
+        
+        $builder->orderBy('IdEncuentro', 'DESC');
 
         $query = $builder->get()->getRow();
 

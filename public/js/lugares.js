@@ -10,8 +10,10 @@ $(document).ready(function(){
 		var pathRecargaMunicipios = path + '/public/index.php/buscador/recarga';
 	} else {
 		var pathRecargaMunicipios = path + '/public/index.php/admin/municipios/recarga';
-		//var pathAdminListadoRutas = path + '/admin/includes/inc_listado_rutas.php';
-		//var pathAdminResultados =  path + '/admin/resultados.php';
+		var encuentros = location.pathname.indexOf('encuentros');
+		if (encuentros != -1){
+			var pathRecargaMunicipios = path + '/public/index.php/admin/encuentros/recarga';
+		}
 	}
 
 	$.ajax({

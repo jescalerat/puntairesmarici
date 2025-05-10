@@ -257,8 +257,6 @@ function superindice($jornada)
 
 function fecha($dia,$mes,$any,$idioma)
 {
-    idiomaPagina();
- 
     if ($idioma==1)
 	{
 		$fechadevuelta=$dia." de ".mesAny($mes)." del ".$any;

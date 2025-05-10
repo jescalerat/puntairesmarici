@@ -38,3 +38,8 @@ $routes->post('/admin/municipios/actualizar', 'Admin\Municipios::actualizar');
 $routes->post('/admin/municipios/recarga', 'Admin\Municipios::recarga');
 $routes->get('/admin/municipios/eliminar/(:num)', 'Admin\Municipios::eliminar/$1');
 $routes->get('/admin/municipios/modificar/(:num)', 'Admin\Municipios::modificar/$1');
+$routes->get('/admin/encuentros', 'Admin\Encuentros::index');
+$routes->post('/admin/encuentros/actualizar', 'Admin\Encuentros::actualizar');
+$routes->post('/admin/encuentros/recarga', 'Admin\Encuentros::recarga');
+$routes->get('/admin/encuentros/eliminar/(:num)', 'Admin\Encuentros::eliminar/$1');
+$routes->get('/admin/encuentros/modificar/(:num)', 'Admin\Encuentros::modificar/$1');

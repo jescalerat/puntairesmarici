@@ -23,7 +23,7 @@
 					<tr>
 						<td>
 							&nbsp;
-							<a href="gestionar_encuentros.php">Insertar Encuentro</a>
+							<a href="<?= site_url('admin/encuentros') ?>">Insertar Encuentro</a>
 						</td>
 					</tr>
 					<tr>
