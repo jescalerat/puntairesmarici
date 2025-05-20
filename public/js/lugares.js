@@ -14,6 +14,10 @@ $(document).ready(function(){
 		if (encuentros != -1){
 			var pathRecargaMunicipios = path + '/public/index.php/admin/encuentros/recarga';
 		}
+		var contactos = location.pathname.indexOf('contactos');
+		if (contactos != -1){
+			var pathRecargaMunicipios = path + '/public/index.php/admin/contactos/recarga';
+		}
 	}
 
 	$.ajax({

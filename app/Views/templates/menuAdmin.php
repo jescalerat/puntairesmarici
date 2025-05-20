@@ -29,7 +29,7 @@
 					<tr>
 						<td>
 							&nbsp;
-							<a href="gestionar_contactos.php">Insertar Contactos</a>
+							<a href="<?= site_url('admin/contactos') ?>">Insertar Contactos</a>
 						</td>
 					</tr>
 					<tr>

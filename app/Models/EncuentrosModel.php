@@ -90,6 +90,7 @@ class EncuentrosModel extends Model
         $builder = $db->table('encuentros');
         $builder->select('*');
         $builder->join('municipios', 'municipios.IdMunicipio = encuentros.IdMunicipio', 'left');
+        $builder->join('provincias', 'provincias.IdProvincia = municipios.IdProvincia', 'left');
         $builder->where('encuentros.IdEncuentro', $idEncuentro);
 
         $query = $builder->get()->getRow();

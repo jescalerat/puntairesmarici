@@ -9,8 +9,8 @@ class ContactosModel extends Model
     
     protected $table         = 'contactos';
     protected $primaryKey    = 'IdContacto';
-    protected $returnType    = 'array';
-    protected $allowedFields = ['Contacto'];
+    protected $returnType    = 'object';
+    protected $allowedFields = ['IdContacto', 'Contacto'];
     
     public function getContactosParams($idEncuentro){
         
@@ -38,4 +38,19 @@ class ContactosModel extends Model
         return $builder;
     }
     
+    public function getMaxContactos(){
+        $db = \Config\Database::connect();
+        $builder = $db->table('contactos');
+        /*$builder->select('*');
+        
+        $builder->orderBy('IdContacto', 'DESC');
+
+        $query = $builder->get()->getRow();*/
+
+        
+        $builder->selectMax('IdContacto');
+        $query = $builder->get()->getRow();
+
+        return $query;
+    }
 }
