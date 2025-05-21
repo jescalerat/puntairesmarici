@@ -18,6 +18,10 @@ $(document).ready(function(){
 		if (contactos != -1){
 			var pathRecargaMunicipios = path + '/public/index.php/admin/contactos/recarga';
 		}
+		var carteles = location.pathname.indexOf('carteles');
+		if (carteles != -1){
+			var pathRecargaMunicipios = path + '/public/index.php/admin/carteles/recarga';
+		}
 	}
 
 	$.ajax({

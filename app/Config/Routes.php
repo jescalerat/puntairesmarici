@@ -43,7 +43,6 @@ $routes->post('/admin/encuentros/actualizar', 'Admin\Encuentros::actualizar');
 $routes->post('/admin/encuentros/recarga', 'Admin\Encuentros::recarga');
 $routes->get('/admin/encuentros/eliminar/(:num)', 'Admin\Encuentros::eliminar/$1');
 $routes->get('/admin/encuentros/modificar/(:num)', 'Admin\Encuentros::modificar/$1');
-
 $routes->get('/admin/contactos', 'Admin\Contactos::index');
 $routes->post('/admin/contactos/actualizar', 'Admin\Contactos::actualizar');
 $routes->post('/admin/contactos/recarga', 'Admin\Contactos::recarga');
@@ -52,3 +51,8 @@ $routes->get('/admin/contactos/modificar/(:num)', 'Admin\Contactos::modificar/$1
 $routes->get('/admin/contactos/eliminarContacto/(:num)/(:num)/(:num)', 'Admin\Contactos::eliminarContacto/$1/$2/$3');
 $routes->get('/admin/contactos/insertarEncuentro/(:num)/(:num)', 'Admin\Contactos::insertarEncuentro/$1/$2');
 $routes->get('/admin/contactos/modificarContacto/(:num)/(:num)', 'Admin\Contactos::modificarContacto/$1/$2');
+$routes->get('/admin/carteles', 'Admin\Carteles::index');
+$routes->post('/admin/carteles/actualizar', 'Admin\Carteles::actualizar');
+$routes->post('/admin/carteles/recarga', 'Admin\Carteles::recarga');
+$routes->get('/admin/carteles/eliminar/(:num)/(:num)', 'Admin\Carteles::eliminar/$1/$2');
+$routes->get('/admin/carteles/modificar/(:num)', 'Admin\Carteles::modificar/$1');

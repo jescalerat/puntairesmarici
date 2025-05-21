@@ -35,7 +35,7 @@
 					<tr>
 						<td>
 							&nbsp;
-							<a href="gestionar_carteles.php">Insertar Carteles</a>
+							<a href="<?= site_url('admin/carteles') ?>">Insertar Carteles</a>
 						</td>
 					</tr>
 					

@@ -9,8 +9,8 @@ class CartelesModel extends Model
     
     protected $table         = 'carteles';
     protected $primaryKey    = 'IdCartel';
-    protected $returnType    = 'array';
-    protected $allowedFields = ['IdEncuentro', 'Carteles'];
+    protected $returnType    = 'object';
+    protected $allowedFields = ['IdCartel', 'IdEncuentro', 'Carteles'];
 
     public function getCartelesParams($idEncuentro){
         
@@ -35,6 +35,27 @@ class CartelesModel extends Model
         $builder->where('IdEncuentro', $idEncuentro);
 
         return $builder;
+    }
+
+    public function getMaxCartel(){
+        $db = \Config\Database::connect();
+        $builder = $db->table('carteles');
+        
+        $builder->selectMax('IdCartel');
+        $query = $builder->get()->getRow();
+
+        return $query;
+    }
+
+    public function deleteCartel($idCartel, $idEncuentro){
+        
+        $db = \Config\Database::connect();
+        $builder = $db->table('carteles');
+        $builder->where('IdCartel', $idCartel);
+        $builder->where('IdEncuentro', $idEncuentro);
+        $builder->delete();
+
+        return null;
     }
     
 }
