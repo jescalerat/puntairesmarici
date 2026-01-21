@@ -1,6 +1,13 @@
 <?= $this->extend('templates/defaultAdmin') ?>
 
 <?= $this->section('content') ?>
+<?php 
+	if ($municipioMod != null)
+    {
+        print("<h2><center>".$municipioMod->Municipio."</center></h2>");
+	}
+?>
+
 <form role="form" id="cambio_pass" method="post" action="<?= site_url('admin/encuentros/actualizar') ?>">
 	<div class="row">
 		<div class="col-6 selector-comunidad" id="comunidades">
@@ -95,8 +102,13 @@
     {
         print(cambiarAcentos($error));
 	}
-?>
 
+	if ($idEncuentroNuevo != null){
+?>
+	<a href="<?= site_url('admin/contactos/modificar/') ?><?= $idEncuentroNuevo ?>">Añadir contacto</a>
+<?php
+	}
+?>
 	<input type="hidden" id="idEncuentro" name="idEncuentro" value="<?= $idEncuentro ?>"/>
 </form>	
 <?= $this->endSection() ?>

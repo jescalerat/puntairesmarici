@@ -109,11 +109,21 @@ class Contactos extends BaseController
             echo $contactosModel->getLastQuery();
             echo '<br>';
 
-            $dataInsertCE = array(
+            $dataInsertCM = array(
                 'IdContacto' => $idContacto,
                 'IdMunicipio' => $idMunicipio
             );
-            $contactosMunicipiosModel->insert($dataInsertCE);
+            $contactosMunicipiosModel->insert($dataInsertCM);
+            echo $contactosMunicipiosModel->getLastQuery();
+            echo '<br>';
+
+            $contactosEncuentrosModel = model('ContactosEncuentrosModel');
+            $dataInsertCE = array(
+                'IdContacto' => $idContacto,
+                'IdEncuentro' => $idEncuentro
+            );
+            $contactosEncuentrosModel->insert($dataInsertCE);
+            
         } else {
             $dataUpdate = array(
                 'Contacto' => $contacto

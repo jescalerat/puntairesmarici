@@ -45,24 +45,26 @@ class Encuentros extends BaseController
         $nombre = $usuario->Nombre;
 
         $error = null;
-        $municipio = null;
         $idMunicipio = null;
         $descripcion = null;
         $dia = null;
         $mes = null;
         $any = null;
         $idEncuentro = null;
+        $idEncuentroNuevo = null;
+        $municipio = null;
 
         $data = [ 
             'contador'    => $contador,
             'nombre'    => $nombre,
-            'municipio'    => $municipio,
             'idMunicipio'    => $idMunicipio,
             'descripcion'    => $descripcion,
             'dia'    => $dia,
             'mes'    => $mes,
             'any'    => $any,
             'idEncuentro'    => $idEncuentro,
+            'idEncuentroNuevo'    => $idEncuentroNuevo,
+            'municipioMod'    => $municipio,
             'error'    => $error,
         ];
         
@@ -92,6 +94,7 @@ class Encuentros extends BaseController
         $encuentrosModel = model('EncuentrosModel');
 
         $error = null;
+        $idEncuentroNuevo = null;
 
         
         $comunidad = $this->request->getPost('comunidadSelect');
@@ -114,6 +117,7 @@ class Encuentros extends BaseController
         
             $maxEncuentro = $encuentrosModel->getMaxEncuentro();
             $idEncuentro = $maxEncuentro->IdEncuentro + 1;
+            $idEncuentroNuevo = $idEncuentro;
 
             $dataInsert = array(
                 'IdEncuentro' => $idEncuentro,
@@ -142,6 +146,7 @@ class Encuentros extends BaseController
         $mes = null;
         $any = null;
         $idEncuentro = null;
+        $municipio = null;
         
         $data = [ 
             'contador'    => $contador,
@@ -152,6 +157,8 @@ class Encuentros extends BaseController
             'mes'    => $mes,
             'any'    => $any,
             'idEncuentro'    => $idEncuentro,
+            'idEncuentroNuevo'    => $idEncuentroNuevo,
+            'municipioMod'    => $municipio,
             'error'    => $error,
         ];
         
@@ -265,6 +272,10 @@ class Encuentros extends BaseController
         $mes = $encuentroM->Mes;
         $any = $encuentroM->Anyo;
         $error = null;
+        $idEncuentroNuevo = null;
+
+        $municipiosModel = model('MunicipiosModel');
+        $municipio = $municipiosModel->find($idMunicipio);
 
         $data = [ 
             'contador'    => $contador,
@@ -275,6 +286,8 @@ class Encuentros extends BaseController
             'mes'    => $mes,
             'any'    => $any,
             'idEncuentro'    => $idEncuentro,
+            'idEncuentroNuevo'    => $idEncuentroNuevo,
+            'municipioMod'    => $municipio,
             'error'    => $error,
         ];
         
